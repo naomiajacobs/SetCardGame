@@ -5,6 +5,7 @@ var AppView = Backbone.View.extend({
   model: new App(),
 
   //template for submit set and superset buttons
+  template: _.template('<button class="set-button">I Found A Set!</button><button class="superset-button">I Found A Superset!</button><div class="inPlayNow"></div>'),
 
   //events
     //submit set
@@ -19,7 +20,7 @@ var AppView = Backbone.View.extend({
     // this.$el.html(_.template())
     //figure out how to get randomized cards passed into here?
     this.$('.in-play-now').html(new inPlayNowView());
-    this.$el.append();
+    this.$el.append(this.template());
   }
 
 });
