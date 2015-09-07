@@ -8,7 +8,9 @@ var CardView = Backbone.View.extend({
     ' <%- shape %></div>'),
 
   events: {
-    'click': function() {this.$el.toggleClass('selected');}
+    'click': function() {
+      this.model.toggleSelected();
+      this.$el.toggleClass('selected');}
   },
 
   initialize: function() {

@@ -11,6 +11,6 @@ var App = Backbone.Model.extend({
     for (var i = 0; i < 12 - cardsToAdd; i++) {
       this.get('inPlayNow').add(this.get('deck').pop());
     }
-  }
+  },
 
 });
