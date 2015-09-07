@@ -23,23 +23,3 @@ var AppView = Backbone.View.extend({
   }
 
 });
-
-// template: _.template '
-//     <button class="hit-button">Hit</button> <button class="stand-button">Stand</button>
-//     <div class="player-hand-container"></div>
-//     <div class="dealer-hand-container"></div>
-//   '
-
-//   events:
-//     'click .hit-button': -> @model.get('player').hit()
-//     'click .stand-button': -> @model.get('player').stand()
-
-//   initialize: ->
-//     @model.get('game').on 'gameOver', => @reload()
-//     @render()
-
-//   render: ->
-//     @$el.children().detach()
-//     @$el.html @template()
- 
-//     @$('.dealer-hand-container').html new HandView(collection: @model.get 'dealer').el

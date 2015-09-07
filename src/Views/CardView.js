@@ -4,16 +4,24 @@ var CardView = Backbone.View.extend({
 
   //for when images get working
   // template: _.template('<img src="img/<%- number %>-<%- color %>-<%- fill %>-<%- shape %>.png">'),
-  template: _.template('<div><%- number %> <%- color %> <%- fill %> <%- shape %></div>'),
+  template: _.template('<div><%- number %> <%- color %> <%- fill %>'+
+    ' <%- shape %></div>'),
+
+  events: {
+    'click': function() {this.$el.toggleClass('selected');}
+  },
 
   initialize: function() {
-    //listen for click, call select function to highlight, add to current selection
     this.render();
   },
 
   render: function() {
     this.$el.children().detach();
     this.$el.html(this.template(this.model.attributes));
+  },
+
+  toggleSelected: function() {
+    this.$el.toggleClass('selected');
   }
 
 });

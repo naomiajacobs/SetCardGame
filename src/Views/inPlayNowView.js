@@ -14,9 +14,3 @@ var inPlayNowView = Backbone.View.extend({
   }
   
 });
-
-// @$el.children().detach()
-//     @$el.html @template @collection
-//     @$el.append @collection.map (card) ->
-//       new CardView(model: card).$el
-//     @$('.score').text @collection.scores()[0]
