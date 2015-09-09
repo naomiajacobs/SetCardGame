@@ -1,5 +1,6 @@
 .inPlayNow {
-  height: 400px;
+  width: 560px;
+  /*margin: 5px;*/
   overflow: auto;
   border: black 2px solid;
 }
@@ -13,4 +14,8 @@
 
 .selected {
   border: red 1px solid;
+}
+
+img {
+  height: 75px;
 }

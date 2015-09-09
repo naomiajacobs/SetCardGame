@@ -62,8 +62,20 @@ var findLastCard = function(card1, card2) {
 };
 
 var determineIfSuperset = function(card1a, card1b, card2a, card2b) {
-  if (findLastCard(card1a, card1b) === findLastCard(card2a, card2b)) {
-    return true;
+  var first = findLastCard(card1a, card1b);
+
+  var second = findLastCard(card2a, card2b);
+
+  for (var i = 0; i < first.length; i++) {
+    if (first[i] !== second[i]) {
+      return false;
+    }
   }
-  return false;
+
+  return true;
+
+  // if (findLastCard(card1a, card1b) === findLastCard(card2a, card2b)) {
+  //   return true;
+  // }
+  // return false;
 };

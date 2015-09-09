@@ -3,23 +3,29 @@ var inPlayNow = Backbone.Collection.extend({
   initialize: function() {
   },
 
-  foundSet: function() {
+  findSelected: function() {
     var selected = [];
-    var props = ['color', 'fill', 'number', 'shape'];
+
     _.each(this.models, function(card) {
       if (card.get('selected')) {
         selected.push(card);
       }
     });
 
-    if (selected.length !== 3) {
-      console.log('false');
+    return selected;
+  },
+
+  foundSet: function() {
+    var selectedCards = this.findSelected();
+    var props = ['color', 'fill', 'number', 'shape'];
+
+    if (selectedCards.length !== 3) {
       return false;
     }
 
-    var card1 = selected[0];
-    var card2 = selected[1];
-    var card3 = selected[2];
+    var card1 = selectedCards[0];
+    var card2 = selectedCards[1];
+    var card3 = selectedCards[2];
 
     for (var i = 0; i < props.length; i++) {
       var prop = props[i];
@@ -30,14 +36,18 @@ var inPlayNow = Backbone.Collection.extend({
         }
       } else if (card3.get(prop) === card1.get(prop) ||
                 card3.get(prop) === card2.get(prop)) {
-        console.log('false');
         return false;
       }
     }
-
-    console.log('IT\'S A SET! CONGRATULATIONS!');
     return true;
+  },
 
+  removeSet: function() {
+    var context = this;
+    var selectedCards = this.findSelected();
+    _.each(selectedCards, function(card) {
+      context.remove(card);
+    });
   }
   
 });
